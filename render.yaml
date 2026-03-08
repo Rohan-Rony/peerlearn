@@ -9,7 +9,7 @@ services:
     name: rohan-rony-peerlearn-backend
     env: node
     rootDir: backend
-    plan: starter
+    plan: free
     buildCommand: npm ci
     startCommand: npm start
     healthCheckPath: /health
@@ -49,7 +49,6 @@ services:
     name: rohan-rony-peerlearn-frontend
     env: static
     rootDir: .
-    plan: starter
     buildCommand: npm ci && npm run build
     staticPublishPath: dist
     envVars:
