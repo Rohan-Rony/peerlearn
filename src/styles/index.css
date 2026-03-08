@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+:root {
+  /* Light Mode: Sky Blue & Navy Blue */
+  --background: 195 90% 95%;
+  /* Sky Blue */
+  --foreground: 220 50% 15%;
+  /* Navy Blue */
+  --card: 0 0% 100%;
+  --card-foreground: 220 50% 15%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 220 50% 15%;
+
+  --primary: 220 60% 20%;
+  /* Deep Navy */
+  --primary-foreground: 195 90% 95%;
+
+  --secondary: 200 80% 90%;
+  --secondary-foreground: 220 50% 15%;
+  --muted: 200 30% 90%;
+  --muted-foreground: 220 30% 40%;
+  --accent: 200 80% 90%;
+  --accent-foreground: 220 50% 15%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 220 20% 80%;
+  --input: 220 20% 80%;
+  --ring: 220 60% 20%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  /* Dark Mode: Navy Blue & Neon Blue */
+  --background: 222 50% 8%;
+  /* Deep Navy */
+  --foreground: 190 100% 50%;
+  /* Neon Blue */
+  --card: 222 45% 12%;
+  --card-foreground: 190 100% 50%;
+  --popover: 222 45% 12%;
+  --popover-foreground: 190 100% 50%;
+
+  --primary: 190 100% 50%;
+  /* Neon Blue */
+  --primary-foreground: 222 50% 8%;
+
+  --secondary: 217 30% 18%;
+  --secondary-foreground: 190 100% 50%;
+  --muted: 217 30% 18%;
+  --muted-foreground: 190 60% 70%;
+  --accent: 217 30% 18%;
+  --accent-foreground: 190 100% 50%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 217 30% 18%;
+  --input: 217 30% 18%;
+  --ring: 190 100% 50%;
+}
+
+@theme {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    background-image: linear-gradient(to bottom, hsl(var(--background)), hsl(var(--primary)/0.1));
+    background-size: 100% 400%;
+    animation: waterFlow 20s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes waterFlow {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  100% {
+    background-position: 0% 100%;
+  }
+}
