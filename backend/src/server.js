@@ -8,8 +8,15 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 5000;
+const allowedOrigins = (process.env.CORS_ORIGIN || process.env.CLIENT_URL || '')
+    .split(',')
+    .map((origin) => origin.trim())
+    .filter(Boolean);
+const corsOptions = allowedOrigins.length
+    ? { origin: allowedOrigins, credentials: true }
+    : {};
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Request logging middleware
@@ -82,8 +89,9 @@ const server = app.listen(port, () => {
 // Socket.io Setup
 const io = require('socket.io')(server, {
     cors: {
-        origin: "*",
-        methods: ["GET", "POST"]
+        origin: allowedOrigins.length ? allowedOrigins : "*",
+        methods: ["GET", "POST"],
+        credentials: true,
     }
 });
 app.set('io', io);
