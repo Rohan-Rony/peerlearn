@@ -6,7 +6,7 @@ databases:
 
 services:
   - type: web
-    name: peerlearn-backend
+    name: rohan-rony-peerlearn-backend
     env: node
     rootDir: backend
     plan: free
@@ -31,9 +31,9 @@ services:
       - key: SIMULATE_PAYMENTS
         value: "true"
       - key: CLIENT_URL
-        value: https://peerlearn-frontend.onrender.com
+        value: https://rohan-rony-peerlearn-frontend.onrender.com
       - key: CORS_ORIGIN
-        value: https://peerlearn-frontend.onrender.com
+        value: https://rohan-rony-peerlearn-frontend.onrender.com
       - key: STRIPE_SECRET_KEY
         sync: false
       - key: EMAIL_USER
@@ -46,7 +46,7 @@ services:
         value: gpt-4o-mini
 
   - type: web
-    name: peerlearn-frontend
+    name: rohan-rony-peerlearn-frontend
     env: static
     rootDir: .
     plan: free
@@ -54,7 +54,7 @@ services:
     staticPublishPath: dist
     envVars:
       - key: VITE_API_URL
-        value: https://peerlearn-backend.onrender.com
+        value: https://rohan-rony-peerlearn-backend.onrender.com
     routes:
       - type: rewrite
         source: /*
